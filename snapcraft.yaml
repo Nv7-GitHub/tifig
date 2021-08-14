@@ -5,6 +5,8 @@ description: |
   Tifig converts HEIF images created on iOS 11 devices as fast as humanly possible.
 base: core18
 confinement: strict
+license: MIT
+grade: stable
 parts:
   tifig:
     plugin: dump
