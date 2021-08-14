@@ -1,0 +1,55 @@
+name: tifig
+version: git
+summary: Converts HEIF images created on iOS 11 devices as fast as possible.
+description: |
+  Tifig converts HEIF images created on iOS 11 devices as fast as humanly possible.
+base: core18
+confinement: strict
+parts:
+  tifig:
+    plugin: dump
+    source-type: git
+    source: https://github.com/monostream/tifig
+    override-build: |
+      snapcraftctl build
+
+      wget https://github.com/jcupitt/libvips/archive/refs/tags/v8.6.1.tar.gz
+      tar xzf v8.6.1.tar.gz
+      rm v8.6.1.tar.gz
+      cd libvips-8.6.1
+      ./autogen.sh
+      make
+      sudo make install
+      cd ..
+      rm -rf libvips-8.6.1
+
+      mkdir build
+      cd build
+      cmake ..
+      make
+
+      cd ..
+    build-packages:
+      - gcc
+      - g++
+      - cmake
+      - pkg-config
+      - libavcodec-dev
+      - libswscale-dev
+      - libglib2.0-dev
+      - libexpat1-dev
+      - libjpeg-dev
+      - libexif-dev
+      - libpng-dev
+      - libtiff-dev
+      - wget
+      - gtk-doc-tools
+      - gobject-introspection
+      - libtool
+      - m4
+      - automake
+    stage-packages: []
+  
+apps:
+  tifig:
+    command: build/tifig
