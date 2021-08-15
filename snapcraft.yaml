@@ -1,5 +1,5 @@
 name: tifig
-version: git
+version: 0.2.2
 summary: Converts HEIF images created on iOS 11 devices as fast as possible.
 description: |
   Tifig converts HEIF images created on iOS 11 devices as fast as humanly possible.
