@@ -66,3 +66,5 @@ parts:
 apps:
   tifig:
     command: tifig
+    plugs:
+      - home
