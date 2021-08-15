@@ -9,7 +9,7 @@ license: MIT
 grade: stable
 parts:
   tifig:
-    plugin: dump
+    plugin: nil
     source-type: git
     source: https://github.com/monostream/tifig
     override-build: |
@@ -50,8 +50,16 @@ parts:
       - libtool
       - m4
       - automake
-    stage-packages: []
+    stage-packages:
+      - libavcodec-dev
+      - libswscale-dev
+      - libglib2.0-dev
+      - libexpat1-dev
+      - libjpeg-dev
+      - libexif-dev
+      - libpng-dev
+      - libtiff-dev
   
 apps:
   tifig:
-    command: build/tifig
+    command: bin/tifig
