@@ -22,6 +22,7 @@ parts:
       ./autogen.sh
       make
       sudo make install
+      sudo make DESTDIR=/root/parts/tifig/install/usr/local install
       cd ..
       rm -rf libvips-8.6.1
 
@@ -64,4 +65,4 @@ parts:
   
 apps:
   tifig:
-    command: bin/tifig
+    command: tifig
