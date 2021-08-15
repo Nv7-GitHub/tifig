@@ -30,6 +30,8 @@ parts:
       cmake ..
       make
 
+      mv tifig /root/parts/tifig/install/tifig
+
       cd ..
     build-packages:
       - gcc
